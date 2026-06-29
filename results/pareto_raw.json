@@ -1,0 +1,272 @@
+[
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.659,
+    "flops": 33792,
+    "inference_ms": 0.6626859999960288,
+    "criterion": "saliency",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.6855,
+    "flops": 33792,
+    "inference_ms": 0.9003329999904963,
+    "criterion": "saliency",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.7235,
+    "flops": 33792,
+    "inference_ms": 0.6082650000098511,
+    "criterion": "saliency",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.659,
+    "flops": 33792,
+    "inference_ms": 0.7679149999967194,
+    "criterion": "saliency",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.6855,
+    "flops": 33792,
+    "inference_ms": 0.9688090000054217,
+    "criterion": "saliency",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.7235,
+    "flops": 33792,
+    "inference_ms": 1.2551470000107656,
+    "criterion": "saliency",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.6245,
+    "flops": 9654,
+    "inference_ms": 3.4380610000152956,
+    "criterion": "saliency",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.615,
+    "flops": 9655,
+    "inference_ms": 1.2648650000119233,
+    "criterion": "saliency",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.695,
+    "flops": 9653,
+    "inference_ms": 1.0274070000014035,
+    "criterion": "saliency",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.543,
+    "flops": 4827,
+    "inference_ms": 1.0350839999955497,
+    "criterion": "saliency",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.57,
+    "flops": 4827,
+    "inference_ms": 1.5904009999940172,
+    "criterion": "saliency",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.625,
+    "flops": 4827,
+    "inference_ms": 1.0205179999684333,
+    "criterion": "saliency",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.483,
+    "flops": 3217,
+    "inference_ms": 0.7907979999799863,
+    "criterion": "saliency",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.4625,
+    "flops": 3217,
+    "inference_ms": 1.0404750000088825,
+    "criterion": "saliency",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.5035,
+    "flops": 3218,
+    "inference_ms": 1.613937000001897,
+    "criterion": "saliency",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.659,
+    "flops": 33792,
+    "inference_ms": 4.978850000006787,
+    "criterion": "magnitude",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.6855,
+    "flops": 33792,
+    "inference_ms": 1.5214909999849624,
+    "criterion": "magnitude",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.0,
+    "achieved_sparsity": 0.0,
+    "test_acc": 0.7235,
+    "flops": 33792,
+    "inference_ms": 1.0540820000096573,
+    "criterion": "magnitude",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.5,
+    "test_acc": 0.573,
+    "flops": 17700,
+    "inference_ms": 1.285009999992326,
+    "criterion": "magnitude",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.5,
+    "test_acc": 0.645,
+    "flops": 17700,
+    "inference_ms": 2.0672160000322037,
+    "criterion": "magnitude",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.5,
+    "achieved_sparsity": 0.5,
+    "test_acc": 0.687,
+    "flops": 17699,
+    "inference_ms": 1.0786689999804366,
+    "criterion": "magnitude",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.5485,
+    "flops": 9654,
+    "inference_ms": 0.9408790000088629,
+    "criterion": "magnitude",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.601,
+    "flops": 9653,
+    "inference_ms": 1.2595430000146735,
+    "criterion": "magnitude",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.75,
+    "achieved_sparsity": 0.75,
+    "test_acc": 0.6145,
+    "flops": 9653,
+    "inference_ms": 1.9913639999867883,
+    "criterion": "magnitude",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.5365,
+    "flops": 4826,
+    "inference_ms": 5.457552999978361,
+    "criterion": "magnitude",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.5205,
+    "flops": 4827,
+    "inference_ms": 2.554247000007308,
+    "criterion": "magnitude",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.9,
+    "achieved_sparsity": 0.8999763257575758,
+    "test_acc": 0.582,
+    "flops": 4827,
+    "inference_ms": 1.1649469999974826,
+    "criterion": "magnitude",
+    "seed": 7
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.5295,
+    "flops": 3217,
+    "inference_ms": 1.364623000008578,
+    "criterion": "magnitude",
+    "seed": 42
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.51,
+    "flops": 3218,
+    "inference_ms": 2.473896999981662,
+    "criterion": "magnitude",
+    "seed": 123
+  },
+  {
+    "target_sparsity": 0.95,
+    "achieved_sparsity": 0.9499881628787878,
+    "test_acc": 0.5085,
+    "flops": 3217,
+    "inference_ms": 1.015627000015229,
+    "criterion": "magnitude",
+    "seed": 7
+  }
+]
