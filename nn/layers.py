@@ -1,3 +1,4 @@
+
 """
 Composable neural-network layers built on the custom autodiff engine.
 No PyTorch / TensorFlow / JAX.
@@ -8,26 +9,17 @@ from typing import List, Optional, Callable
 from engine.tensor import Tensor
 
 
-<<<<<<< HEAD
 # ================================================================== #
 # Linear                                                               #
 # ================================================================== #
 
-=======
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
 class Linear:
     """
     Fully-connected linear layer: out = X @ W + b
 
-<<<<<<< HEAD
     Weight initialisation:
       - Kaiming He uniform for ReLU / GELU  → bound = sqrt(6 / fan_in)
       - Xavier / Glorot uniform for tanh / sigmoid
-=======
-    Weight initialisation: Kaiming (He) uniform for ReLU nets, which keeps
-    the variance of activations stable across depth.
-    For tanh/sigmoid we fall back to Xavier uniform.
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
     """
 
     def __init__(
@@ -41,18 +33,12 @@ class Linear:
         self.out_features = out_features
         self.use_bias = bias
 
-<<<<<<< HEAD
-        if activation in ("relu", "gelu"):
-            bound = np.sqrt(6.0 / in_features)
-        else:
-=======
         # --- Weight initialisation ---
         if activation in ("relu", "gelu"):
             # Kaiming He uniform: U(-sqrt(6/fan_in), sqrt(6/fan_in))
             bound = np.sqrt(6.0 / in_features)
         else:
             # Xavier/Glorot uniform
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
             bound = np.sqrt(6.0 / (in_features + out_features))
 
         W_data = np.random.uniform(-bound, bound, (in_features, out_features))
@@ -79,7 +65,6 @@ class Linear:
         return params
 
 
-<<<<<<< HEAD
 # ================================================================== #
 # BatchNorm1d                                                          #
 # ================================================================== #
@@ -195,7 +180,7 @@ class Dropout:
 
 class DeepMNISTNet:
     """
-    Architecture designed specifically for higher acuuracy on MNIST with pure NumPy.
+    Architecture designed specifically for higher accuracy on MNIST with pure NumPy.
 
     Design rationale:
     ─────────────────
@@ -261,9 +246,9 @@ class DeepMNISTNet:
         n_hidden = len(hidden_sizes)
 
         # Build layers
-        self.linears:  List[Linear]       = []
-        self.bns:      List[Optional[BatchNorm1d]] = []
-        self.dropouts: List[Optional[Dropout]]     = []
+        self.linears:  List[Linear]                    = []
+        self.bns:      List[Optional[BatchNorm1d]]     = []
+        self.dropouts: List[Optional[Dropout]]         = []
 
         for i in range(len(sizes) - 1):
             is_hidden = (i < n_hidden)
@@ -351,13 +336,16 @@ class DeepMNISTNet:
 
 
 # ================================================================== #
-# Original MLP (kept for backward compatibility)                       #
+# MLP (kept for backward compatibility)                                #
 # ================================================================== #
 
 class MLP:
     """
     Simple MLP — kept for backward compatibility with existing scripts.
     For 96%+ MNIST accuracy use DeepMNISTNet instead.
+
+    hidden_sizes: list of hidden layer widths.
+    activation  : 'relu' | 'tanh' | 'sigmoid' | 'gelu'
     """
 
     ACTIVATIONS = {
@@ -365,21 +353,6 @@ class MLP:
         "tanh":    lambda t: t.tanh(),
         "sigmoid": lambda t: t.sigmoid(),
         "gelu":    lambda t: t.gelu(),
-=======
-class MLP:
-    """
-    Multi-layer perceptron.
-
-    hidden_sizes: list of hidden layer widths.
-    activation   : 'relu' | 'tanh' | 'sigmoid' | 'gelu'
-    """
-
-    ACTIVATIONS = {
-        "relu": lambda t: t.relu(),
-        "tanh": lambda t: t.tanh(),
-        "sigmoid": lambda t: t.sigmoid(),
-        "gelu": lambda t: t.gelu(),
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
     }
 
     def __init__(
@@ -391,37 +364,22 @@ class MLP:
         bias: bool = True,
     ):
         self.activation_name = activation
-<<<<<<< HEAD
-        self.act_fn = self.ACTIVATIONS[activation]
-=======
         self.act_fn: Callable[[Tensor], Tensor] = self.ACTIVATIONS[activation]
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
 
         sizes = [input_size] + hidden_sizes + [output_size]
         self.layers: List[Linear] = []
         for i in range(len(sizes) - 1):
-<<<<<<< HEAD
-=======
-            act = activation if i < len(sizes) - 2 else "none"
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
             layer_act = activation if i < len(sizes) - 2 else "relu"
             self.layers.append(
                 Linear(sizes[i], sizes[i + 1], bias=bias, activation=layer_act)
             )
-<<<<<<< HEAD
-=======
 
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         self._num_hidden = len(hidden_sizes)
 
     def forward(self, x: Tensor) -> Tensor:
         for i, layer in enumerate(self.layers):
             x = layer(x)
-<<<<<<< HEAD
-            if i < self._num_hidden:
-=======
             if i < self._num_hidden:          # no activation on output layer
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
                 x = self.act_fn(x)
         return x
 
@@ -435,10 +393,7 @@ class MLP:
         return params
 
     def weight_parameters(self) -> List[Tensor]:
-<<<<<<< HEAD
-=======
         """Return only weight matrices (not biases) — used for pruning."""
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         return [layer.W for layer in self.layers]
 
     def zero_grad(self):
@@ -449,19 +404,13 @@ class MLP:
         return sum(p.data.size for p in self.parameters())
 
     def sparsity(self) -> float:
-<<<<<<< HEAD
-=======
         """Fraction of weights that are zero (masked or trained-to-zero)."""
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         total = zeros = 0
         for layer in self.layers:
             w = layer.W
             total += w.data.size
             zeros += int((w.data == 0.0).sum())
         return zeros / total if total > 0 else 0.0
-<<<<<<< HEAD
 
     def train_mode(self): pass   # no-op for plain MLP
     def eval_mode(self):  pass
-=======
->>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
