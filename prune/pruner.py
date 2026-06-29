@@ -265,14 +265,23 @@ def sparse_linear_forward(x: np.ndarray, W: Tensor, b=None) -> np.ndarray:
 
 def count_flops(model, input_size: int, batch_size: int = 1) -> int:
     """Count multiply-accumulate operations for one forward pass."""
+<<<<<<< HEAD
     # Support both MLP (.layers) and DeepMNISTNet (.linears)
     layers = getattr(model, "linears", None) or getattr(model, "layers", [])
     total_macs = 0
     for layer in layers:
+=======
+    total_macs = 0
+    for layer in model.layers:
+>>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         W = layer.W
         if W.mask is not None:
             nnz = int(W.mask.sum())
         else:
             nnz = W.data.size
+<<<<<<< HEAD
+=======
+        # MACs = batch_size * nnz (one MAC per active weight per sample)
+>>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         total_macs += batch_size * nnz
     return total_macs

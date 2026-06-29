@@ -47,7 +47,11 @@ def main():
         model,
         X_train, y_train,
         X_test, y_test,
+<<<<<<< HEAD
         epochs=100,
+=======
+        epochs=20,
+>>>>>>> 2c0b5a126d2c4f2d8f4b18795143acd310e37ad5
         batch_size=128,
         optimizer=optimizer,
         seed=SEED,
