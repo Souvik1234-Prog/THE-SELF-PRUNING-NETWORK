@@ -1,5 +1,32 @@
+# Virtual Environment
+.auto_diff/
+venv/
+.env/
 
+# Python
 __pycache__/
 *.pyc
-results/
-plots/
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+
+# Build
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
