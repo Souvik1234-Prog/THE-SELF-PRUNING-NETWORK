@@ -218,7 +218,11 @@ def evaluate(model: MLP, X: np.ndarray, y: np.ndarray, batch_size: int = 512) ->
 Training loop, data loading, and evaluation utilities.
 scikit-learn is used ONLY to load datasets (not for training, models, or gradients).
 """
+import os
+import sys
 
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 import numpy as np
 from typing import Optional, Tuple, List, Dict
 from engine.tensor import Tensor

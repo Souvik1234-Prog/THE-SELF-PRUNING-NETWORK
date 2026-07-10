@@ -360,7 +360,7 @@ class MLP:
         input_size: int,
         hidden_sizes: List[int],
         output_size: int,
-        activation: str = "relu",
+        activation: str = "gelu",
         bias: bool = True,
     ):
         self.activation_name = activation

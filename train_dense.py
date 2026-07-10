@@ -35,11 +35,11 @@ def main():
         input_size=input_size,
         hidden_sizes=[256, 128],
         output_size=n_classes,
-        activation="relu",
+        activation="gelu",
     )
     print(f"\nModel: {model.num_parameters()} parameters")
-    print("Architecture: Linear(in, 256) -> ReLU -> Linear(256, 128) -> ReLU -> Linear(128, out)")
-    print("Init: Kaiming He uniform (appropriate for ReLU networks)")
+    print("Architecture: Linear(in, 256) -> GeLU -> Linear(256, 128) -> GeLU -> Linear(128, out)")
+    #print("Init: Kaiming He uniform (appropriate for ReLU networks)")
 
     optimizer = Adam(model.parameters(), lr=1e-3, weight_decay=1e-4)
 
@@ -58,10 +58,10 @@ def main():
     print(f"Final sparsity (should be ~0): {history['sparsity'][-1]:.4f}")
 
     # Save results
-    os.makedirs("results", exist_ok=True)
-    with open("results/dense_history.json", "w") as f:
+    os.makedirs("results_gelu_op", exist_ok=True)
+    with open("results_gelu_op/dense_history_gelu.json", "w") as f:
         json.dump(history, f, indent=2)
-    print("\nResults saved to results/dense_history.json")
+    print("\nResults saved to results/dense_history_gelu.json")
 
     # Plot
     try:
@@ -88,9 +88,9 @@ def main():
         axes[1].grid(True, alpha=0.3)
 
         plt.tight_layout()
-        os.makedirs("plots", exist_ok=True)
-        plt.savefig("plots/part2_learning_curves.png", dpi=150, bbox_inches="tight")
-        print("Plot saved to plots/part2_learning_curves.png")
+        os.makedirs("plots_gelu", exist_ok=True)
+        plt.savefig("plots_gelu/part2_learning_curves.png", dpi=150, bbox_inches="tight")
+        print("Plot saved to plots_gelu/part2_learning_curves.png")
         plt.close()
     except ImportError:
         print("matplotlib not available, skipping plot")

@@ -25,9 +25,9 @@ def main():
     print("  DeepMNISTNet — Target: 96%+ accuracy")
     print("=" * 65)
 
-    # Full MNIST: 60k train, 10k test
+    #  MNIST: 8k train, 2k test
     X_train, y_train, X_test, y_test, n_classes = load_mnist(
-        n_train=60000, n_test=10000, seed=SEED
+        n_train=8000, n_test=2000, seed=SEED
     )
 
     np.random.seed(SEED)
@@ -59,7 +59,7 @@ def main():
         model,
         X_train, y_train,
         X_test,  y_test,
-        epochs          = 30,
+        epochs          = 100,
         batch_size      = 256,    # larger batch → more stable BN stats
         lr              = 3e-3,
         lr_min          = 1e-5,
@@ -79,8 +79,8 @@ def main():
     print(f"  Target achieved    : {'✓ YES' if best_acc >= 0.96 else '✗ not yet — try more epochs'}")
     print(f"{'='*65}")
 
-    os.makedirs("results", exist_ok=True)
-    with open("results/deep_mnist_history.json", "w") as f:
+    os.makedirs("results_bt", exist_ok=True)
+    with open("results_bt/deep_mnist_history_relu.json", "w") as f:
         json.dump({**history, "best_acc": best_acc, "final_acc": final_acc}, f, indent=2)
 
     # Plot
@@ -105,9 +105,9 @@ def main():
 
         plt.suptitle(f"DeepMNISTNet  |  Best: {best_acc*100:.2f}%", fontsize=13)
         plt.tight_layout()
-        os.makedirs("plots", exist_ok=True)
-        plt.savefig("plots/deep_mnist_96.png", dpi=150, bbox_inches="tight")
-        print("Plot saved to plots/deep_mnist_96.png")
+        os.makedirs("plots_bt", exist_ok=True)
+        plt.savefig("plots_bt/deep_mnist_96_relu.png", dpi=150, bbox_inches="tight")
+        print("Plot saved to plots_bt/deep_mnist_96_relu.png")
         plt.close()
     except ImportError:
         pass
